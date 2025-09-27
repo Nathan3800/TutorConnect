@@ -162,3 +162,29 @@ body {
 .section-transition:hover {
   transform: translateX(5px);
 }
+.form-transition {
+  transition: all 0.3s ease;
+}
+.form-transition:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.auth-transition {
+  transition: all 0.3s ease;
+}
+.slide-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+}

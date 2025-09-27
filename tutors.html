@@ -3,12 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutors</title>
+    <title>Tutors - TutorConnect</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          sans-serif;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .tutor-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .tutor-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
@@ -98,6 +116,20 @@
         const [searchTerm, setSearchTerm] = useState("");
         const [showBookingModal, setShowBookingModal] = useState(false);
         const [selectedTutor, setSelectedTutor] = useState(null);
+        const [bookingStep, setBookingStep] = useState(1); // 1: booking details, 2: payment, 3: confirmation
+        const [paymentMethod, setPaymentMethod] = useState("card");
+        const [paymentForm, setPaymentForm] = useState({
+          cardNumber: "",
+          expiryDate: "",
+          cvv: "",
+          cardName: "",
+          billingAddress: "",
+          city: "",
+          zipCode: "",
+          paypalEmail: "",
+          applePay: false,
+          googlePay: false,
+        });
         const [darkMode, setDarkMode] = useState(false);
         const [bookingForm, setBookingForm] = useState({
           date: "",
@@ -250,7 +282,7 @@
                       Tutors
                     </a>
                     <a
-                      href="dashboard.html"
+                      href="#dashboard"
                       className="hover:text-blue-600 transition-colors"
                     >
                       Dashboard
@@ -270,10 +302,10 @@
                     </button>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
                       <Calendar size={16} />
-                      Book
+                      <a href="tutors.html">Book</a>
                     </button>
                     <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                      Login
+                      <a href="login-register.html">Login</a>
                     </button>
                   </div>
                 </div>
