@@ -573,7 +573,7 @@ const ContactPage = () => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className={darkMode ? "text-gray-400" : "text-gray-600"}>
-            © 2024 ConnectTutors
+            © 2025 TutorConnect. All rights reserved.
           </div>
           <div className="space-x-6">
             <a
